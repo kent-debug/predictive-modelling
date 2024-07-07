@@ -1,0 +1,88 @@
+// Event Log Workflow
+digraph {
+	"Start trip" [label="Start trip
+Frequency: 1"]
+	"Declaration SAVED by EMPLOYEE" [label="Declaration SAVED by EMPLOYEE
+Frequency: 1"]
+	"Permit REJECTED by BUDGET OWNER" [label="Permit REJECTED by BUDGET OWNER
+Frequency: 1"]
+	"Declaration REJECTED by BUDGET OWNER" [label="Declaration REJECTED by BUDGET OWNER
+Frequency: 1"]
+	"Permit REJECTED by ADMINISTRATION" [label="Permit REJECTED by ADMINISTRATION
+Frequency: 1"]
+	"Permit REJECTED by SUPERVISOR" [label="Permit REJECTED by SUPERVISOR
+Frequency: 1"]
+	"Declaration REJECTED by DIRECTOR" [label="Declaration REJECTED by DIRECTOR
+Frequency: 1"]
+	"Permit REJECTED by EMPLOYEE" [label="Permit REJECTED by EMPLOYEE
+Frequency: 1"]
+	"Permit REJECTED by PRE_APPROVER" [label="Permit REJECTED by PRE_APPROVER
+Frequency: 1"]
+	"Declaration FINAL_APPROVED by DIRECTOR" [label="Declaration FINAL_APPROVED by DIRECTOR
+Frequency: 1"]
+	"Declaration APPROVED by SUPERVISOR" [label="Declaration APPROVED by SUPERVISOR
+Frequency: 1"]
+	"Declaration REJECTED by SUPERVISOR" [label="Declaration REJECTED by SUPERVISOR
+Frequency: 1"]
+	"Permit REJECTED by MISSING" [label="Permit REJECTED by MISSING
+Frequency: 1"]
+	"Declaration REJECTED by MISSING" [label="Declaration REJECTED by MISSING
+Frequency: 1"]
+	"Declaration REJECTED by EMPLOYEE" [label="Declaration REJECTED by EMPLOYEE
+Frequency: 1"]
+	"End trip" [label="End trip
+Frequency: 1"]
+	"Declaration REJECTED by PRE_APPROVER" [label="Declaration REJECTED by PRE_APPROVER
+Frequency: 1"]
+	"Permit APPROVED by PRE_APPROVER" [label="Permit APPROVED by PRE_APPROVER
+Frequency: 1"]
+	"Declaration APPROVED by ADMINISTRATION" [label="Declaration APPROVED by ADMINISTRATION
+Frequency: 1"]
+	"Declaration APPROVED by PRE_APPROVER" [label="Declaration APPROVED by PRE_APPROVER
+Frequency: 1"]
+	"Permit FINAL_APPROVED by DIRECTOR" [label="Permit FINAL_APPROVED by DIRECTOR
+Frequency: 1"]
+	"Permit APPROVED by SUPERVISOR" [label="Permit APPROVED by SUPERVISOR
+Frequency: 1"]
+	"Payment Handled" [label="Payment Handled
+Frequency: 1"]
+	"Request Payment" [label="Request Payment
+Frequency: 1"]
+	"Declaration FINAL_APPROVED by SUPERVISOR" [label="Declaration FINAL_APPROVED by SUPERVISOR
+Frequency: 1"]
+	"Declaration SUBMITTED by EMPLOYEE" [label="Declaration SUBMITTED by EMPLOYEE
+Frequency: 1"]
+	"Permit FINAL_APPROVED by SUPERVISOR" [label="Permit FINAL_APPROVED by SUPERVISOR
+Frequency: 1"]
+	"Permit SUBMITTED by EMPLOYEE" [label="Permit SUBMITTED by EMPLOYEE
+Frequency: 1"]
+	"Permit REJECTED by DIRECTOR" [label="Permit REJECTED by DIRECTOR
+Frequency: 1"]
+	"Start trip" -> "Permit SUBMITTED by EMPLOYEE"
+	"Permit SUBMITTED by EMPLOYEE" -> "Permit FINAL_APPROVED by SUPERVISOR"
+	"Permit FINAL_APPROVED by SUPERVISOR" -> "Permit FINAL_APPROVED by DIRECTOR"
+	"Permit FINAL_APPROVED by DIRECTOR" -> "End trip"
+	"Declaration SUBMITTED by EMPLOYEE" -> "Declaration FINAL_APPROVED by SUPERVISOR"
+	"Declaration FINAL_APPROVED by SUPERVISOR" -> "Declaration APPROVED by PRE_APPROVER"
+	"Declaration APPROVED by PRE_APPROVER" -> "Declaration APPROVED by ADMINISTRATION"
+	"Declaration APPROVED by ADMINISTRATION" -> "End trip"
+	"Request Payment" -> "Payment Handled"
+	"Payment Handled" -> "End trip"
+	"Permit APPROVED by SUPERVISOR" -> "Permit FINAL_APPROVED by DIRECTOR"
+	"Permit FINAL_APPROVED by DIRECTOR" -> "End trip"
+	"Declaration REJECTED by PRE_APPROVER" -> "Declaration SAVED by EMPLOYEE"
+	"Declaration SAVED by EMPLOYEE" -> "Declaration REJECTED by MISSING"
+	"Declaration REJECTED by MISSING" -> "End trip"
+	"Permit REJECTED by MISSING" -> "End trip"
+	"Declaration REJECTED by SUPERVISOR" -> "Declaration APPROVED by SUPERVISOR"
+	"Declaration APPROVED by SUPERVISOR" -> "Declaration FINAL_APPROVED by DIRECTOR"
+	"Declaration FINAL_APPROVED by DIRECTOR" -> "End trip"
+	"Permit REJECTED by PRE_APPROVER" -> "End trip"
+	"Permit REJECTED by EMPLOYEE" -> "End trip"
+	"Declaration REJECTED by DIRECTOR" -> "End trip"
+	"Permit REJECTED by SUPERVISOR" -> "End trip"
+	"Permit REJECTED by ADMINISTRATION" -> "End trip"
+	"Declaration REJECTED by BUDGET OWNER" -> "End trip"
+	"Permit REJECTED by BUDGET OWNER" -> "End trip"
+	"Permit REJECTED by DIRECTOR" -> "End trip"
+}
